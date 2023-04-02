@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Slf4j
-public class PalindromeNumber_9 {
+public class PalindromeNumberNo9 {
 //
 //    Given an integer x, return true if x is a palindrome, and false otherwise.
 //

@@ -3,7 +3,7 @@ package com.ed.leetcode.easy;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class ValidParentheses_20 {
+public class ValidParenthesesNo20 {
 //    Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
 //    determine if the input string is valid.
 //    An input string is valid if:

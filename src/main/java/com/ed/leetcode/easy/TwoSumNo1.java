@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 
 @Slf4j
-public class TwoSum_1 {
+public class TwoSumNo1 {
 //    Given an array of integers nums and an integer target,
 //    return indices of the two numbers such that they add up to target.
 //    You may assume that each input would have exactly one solution,
@@ -46,22 +46,22 @@ public class TwoSum_1 {
     public static void main(String[] args) {
         int[] nums1 = {2, 7, 11, 15};
         int target1 = 9;
-        int[] ans1 = TwoSum_1.twoSum(nums1, target1);
+        int[] ans1 = TwoSumNo1.twoSum(nums1, target1);
         log.debug("ans1: {}", Arrays.toString(ans1));
 
         int[] nums2 = {3, 2, 4};
         int target2 = 6;
-        int[] ans2 = TwoSum_1.twoSum(nums2, target2);
+        int[] ans2 = TwoSumNo1.twoSum(nums2, target2);
         log.debug("ans2: {}", Arrays.toString(ans2));
 
         int[] nums3 = {3, 3};
         int target3 = 6;
-        int[] ans3 = TwoSum_1.twoSum(nums3, target3);
+        int[] ans3 = TwoSumNo1.twoSum(nums3, target3);
         log.debug("ans3: {}", Arrays.toString(ans3));
 
         int[] nums4 = {3, 3};
         int target4 = -1;
-        int[] ans4 = TwoSum_1.twoSum(nums4, target4);
+        int[] ans4 = TwoSumNo1.twoSum(nums4, target4);
         log.debug("ans4: {}", Arrays.toString(ans4));
     }
 

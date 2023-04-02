@@ -3,7 +3,7 @@ package com.ed.leetcode.easy;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class PalindromeNumber_9_v2 {
+public class PalindromeNumberNo9V2 {
 //
 //    Given an integer x, return true if x is a palindrome, and false otherwise.
 //
@@ -54,7 +54,7 @@ public class PalindromeNumber_9_v2 {
         if (isNegative)
             return false;
 
-        boolean isOnlyOneNumber = x / 10 < 1;
+        boolean isOnlyOneNumber = shiftRightOneDigit(x) < 1;
         if (isOnlyOneNumber)
             return true;
 
@@ -64,14 +64,22 @@ public class PalindromeNumber_9_v2 {
     private static int reverseNumber(int number, int newNumber) {
         if (number < 1)
             return newNumber;
-        int element = getElement(number);
-        newNumber = newNumber * 10 + element;
-        int remain = number / 10;
+        int digit = getRightmostDigit(number);
+        newNumber = composeNewNumber(newNumber, digit);
+        int remainingNumber = shiftRightOneDigit(number);
 
-        return reverseNumber(remain, newNumber);
+        return reverseNumber(remainingNumber, newNumber);
     }
 
-    private static int getElement(int input) {
+    private static int shiftRightOneDigit(int number) {
+        return number / 10;
+    }
+
+    private static int composeNewNumber(int newNumber, int digit) {
+        return newNumber * 10 + digit;
+    }
+
+    private static int getRightmostDigit(int input) {
         return input % 10;
     }
 }
