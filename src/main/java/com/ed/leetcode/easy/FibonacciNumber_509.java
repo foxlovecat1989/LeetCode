@@ -3,7 +3,7 @@ package com.ed.leetcode.easy;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class FibonacciNumber509 {
+public class FibonacciNumber_509 {
 //    The Fibonacci numbers, commonly denoted F(n) form a sequence,
 //    called the Fibonacci sequence,
 //    such that each number is the sum of the two preceding ones,
