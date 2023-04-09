@@ -34,6 +34,8 @@ public class RomanToInteger_13 {
      */
     public static void main(String[] args) {
         System.out.println(romanToInt("III"));
+        System.out.println(romanToInt("LVIII"));
+        System.out.println(romanToInt("MCMXCIV"));
     }
     public static int romanToInt(String roman) {
             List<Integer> numberList = new ArrayList<>();
@@ -60,29 +62,14 @@ public class RomanToInteger_13 {
     private static void convertRoman(String roman, List<Integer> numberList) {
         for (int i = 0; i < roman.length(); i++) {
             switch (roman.charAt(i)) {
-                case 'I':
-                    numberList.add(1);
-                    break;
-                case 'V':
-                    numberList.add(5);
-                    break;
-                case 'X':
-                    numberList.add(10);
-                    break;
-                case 'L':
-                    numberList.add(50);
-                    break;
-                case 'C':
-                    numberList.add(100);
-                    break;
-                case 'D':
-                    numberList.add(500);
-                    break;
-                case 'M':
-                    numberList.add(1000);
-                    break;
-                default:
-                    throw new IllegalArgumentException("錯誤的參數 : " + roman.charAt(i));
+                case 'I' -> numberList.add(1);
+                case 'V' -> numberList.add(5);
+                case 'X' -> numberList.add(10);
+                case 'L' -> numberList.add(50);
+                case 'C' -> numberList.add(100);
+                case 'D' -> numberList.add(500);
+                case 'M' -> numberList.add(1000);
+                default -> throw new IllegalArgumentException("錯誤的參數 : " + roman.charAt(i));
             }
         }
     }
