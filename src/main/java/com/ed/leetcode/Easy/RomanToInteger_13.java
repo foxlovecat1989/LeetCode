@@ -41,8 +41,8 @@ public class RomanToInteger_13 {
             List<Integer> numberList = new ArrayList<>();
         // 轉換roman to int
         convertRoman(roman, numberList);
-        return countNumbers(numberList);
 
+        return countNumbers(numberList);
     }
 
     private static int countNumbers(List<Integer> numberList) {
