@@ -1,5 +1,13 @@
 package com.ed.leetcode.easy;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
+@Slf4j
 public class RomanToIntegerNo13 {
 //
 //    Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -57,6 +65,63 @@ public class RomanToIntegerNo13 {
 //    It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 
     public static void main(String[] args) {
+        String x1 = "III";
+        int result1 = process(x1);
+        log.info("result1: {}", result1);
 
+        String x2 = "LVIII";
+        int result2 = process(x2);
+        log.info("result2: {}", result2);
+
+        String x3 = "MCMXCIV";
+        int result3 = process(x3);
+        log.info("result3: {}", result3);
+    }
+
+
+    public static int process(String x) {
+        String[] datas = x.split("");
+
+        return IntStream.range(0, datas.length)
+                .map(index -> {
+                    boolean isLastItem = index == datas.length - 1;
+                    if (isLastItem)
+                        return covertToNumber(datas[index]);
+
+                    return calculateValue(datas[index], datas[index + 1]);
+                })
+                .sum();
+    }
+
+    public static int calculateValue(String firstItem, String secondItem) {
+        int currentValue = covertToNumber(firstItem);
+        int nextValue = covertToNumber(secondItem);
+
+        return currentValue < nextValue ? -currentValue : currentValue;
+    }
+
+    private static int covertToNumber(String number) {
+        return RomanNumber.getEnum(number).value;
+    }
+
+    @Getter
+    @AllArgsConstructor
+    public enum RomanNumber {
+        I("I", 1),
+        V("V", 5),
+        X("X", 10),
+        L("L", 50),
+        C("C", 100),
+        D("D", 500),
+        M("M", 1000);
+
+        private final String key;
+        private final int value;
+
+        public static RomanNumber getEnum(String key) {
+            return Arrays.stream(RomanNumber.values())
+                    .filter(element -> element.getKey().equals(key))
+                    .findAny().orElseThrow(() -> new IllegalArgumentException("無法找到相對應的值"));
+        }
     }
 }
